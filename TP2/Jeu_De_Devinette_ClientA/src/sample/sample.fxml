@@ -1,0 +1,66 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+<?import java.lang.Boolean?>
+
+<AnchorPane prefWidth="540" prefHeight="790" fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+    <stylesheets>
+        <URL value="@../styles/style.css"/>
+    </stylesheets>
+
+    <!--TitleBar-->
+    <GridPane fx:id="titleBar" onMousePressed="#handleTitleBarClickAction" onMouseDragged="#handleTitleBarMovementAction">
+        <!--Icon-->
+        <ImageView GridPane.columnIndex="0" fitWidth="30" fitHeight="30">
+            <image>
+                <Image url="@../resources/icon.png"/>
+            </image>
+        </ImageView>
+
+        <!--Title-->
+        <Label text="Jeu de devinette - Client A" GridPane.columnIndex="1"/>
+
+        <!--Minimize Button-->
+        <Button fx:id="minBtn" onAction="#handleMinimizedAction" text="-" GridPane.columnIndex="2"/>
+
+        <!--Exit Button-->
+        <Button fx:id="closeBtn" onAction="#handleCloseAction" text="X" GridPane.columnIndex="3"/>
+    </GridPane>
+
+    <!--Background-->
+    <ImageView fx:id="backgroundImg" AnchorPane.topAnchor="30" fitWidth="540" fitHeight="760">
+        <image>
+            <Image url="@../resources/background.png"/>
+        </image>
+    </ImageView>
+
+    <!--Menu-->
+    <GridPane fx:id="mainMenu" visible="true" AnchorPane.topAnchor="225" AnchorPane.leftAnchor="25">
+        <!--Menu Title-->
+        <Label fx:id="titleLabel" text="Client A : Génération du nombre" GridPane.columnIndex="1" GridPane.rowIndex="1"
+               GridPane.halignment="CENTER">
+            <wrapText>
+                <Boolean fx:value="true"/>
+            </wrapText>
+        </Label>
+
+        <!--Start Button-->
+        <Button fx:id="startBtn" onAction="#handleStartAction" text="Générer et Envoyer le Nombre" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                GridPane.halignment="CENTER"/>
+
+        <!--Exit Button-->
+        <Button fx:id="exitBtn" onAction="#handleExitAction" text="Sortir" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                GridPane.halignment="CENTER"/>
+    </GridPane>
+
+    <!--Hint/Status-->
+    <Label fx:id="hintLabel" text="Statut de l'envoi" AnchorPane.topAnchor="500" AnchorPane.leftAnchor="150" style="-fx-font-size: 16px; -fx-text-fill: #FFFFFF;"/>
+
+</AnchorPane>
